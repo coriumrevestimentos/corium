@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corium Revestimentos</title>
+  <style>
+    /* Reset e Estilos Globais */
+    body { margin: 0; font-family: Arial, sans-serif; color: #111; background: #f9f9f9; }
+    h1, h2, h3 { margin: 0 0 16px; }
+    p { margin: 0 0 16px; }
+    a { text-decoration: none; color: inherit; }
+    html { scroll-behavior: smooth; } /* Rolagem suave ao clicar nos links do menu */
+
+    /* Header e Menu */
+    .header {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+    }
+    .header .logo-menu {
+      max-width: 150px;
+    }
+    .nav-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+    }
+    .nav-links a {
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #ddd;
+    }
+    .hamburger {
+      display: none; /* Escondido em telas grandes */
+      cursor: pointer;
+      padding: 10px;
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+
+    /* Hero (Carrossel) */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slides {
+      position: absolute; inset: 0;
+      display: flex;
+      animation: slide 15s infinite;
+    }
+    .slides img {
+      min-width: 100%;
+      height: 100%; /* Garante que a imagem ocupe toda a altura */
+      object-fit: cover;
+      filter: brightness(60%);
+    }
+    @keyframes slide {
+      0%, 20% { transform: translateX(0); }
+      25%, 45% { transform: translateX(-100%); }
+      50%, 70% { transform: translateX(-200%); }
+      75%, 95% { transform: translateX(-300%); }
+      100% { transform: translateX(0); }
+    }
+    .hero-content {
+      position: relative; z-index: 1;
+      text-align: center; color: #fff;
+      top: 50%; transform: translateY(-50%);
+      padding: 0 20px;
+    }
+    .hero-content img.logo { max-width: 220px; margin-bottom: 20px; }
+
+    /* Botões */
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 12px; font-weight: bold; transition: 0.3s; }
+    .btn-dark { background: #5c3d2e; color: #fff; }
+    .btn-dark:hover { background: #3d281f; }
+    .btn-light { background: #fff; color: #111; }
+    .btn-light:hover { background: #ddd; }
+
+    section { padding: 80px 20px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .grid { display: grid; gap: 24px; }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+    /* Cards */
+    .card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .card img { width: 100%; border-radius: 12px; margin-top: 16px; }
+
+    /* Clientes */
+    .clientes { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    .clientes img { max-width: 150px; opacity: 0.8; transition: 0.3s; }
+    .clientes img:hover { opacity: 1; }
+
+    /* Formulário */
+    form input, form textarea {
+      width: 100%; padding: 14px; border-radius: 8px;
+      border: 1px solid #ccc; margin-bottom: 16px; font-size: 16px;
+      box-sizing: border-box;
+    }
+    form button {
+      background: #5c3d2e; color: #fff; border: none;
+      padding: 14px 28px; border-radius: 12px;
+      font-weight: bold; cursor: pointer; transition: 0.3s;
+    }
+    form button:hover { background: #3d281f; }
+
+    footer { text-align: center; padding: 30px; color: #555; background: #f0f0f0; }
+
+    /* Estilos do Carrossel de Couros */
+    .couros-marquee {
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-content {
+      display: flex;
+      gap: 20px;
+      animation: scroll 40s linear infinite;
+    }
+    .marquee-content img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .marquee-content img:hover {
+      transform: scale(1.05);
+    }
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* Media Query para Responsividade do Menu */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Esconde os links */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px; /* Altura do header */
+        left: 0;
+        background: rgba(0, 0, 0, 0.9);
+        text-align: center;
+        padding: 20px 0;
+      }
+      .nav-links.active {
+        display: flex; /* Mostra os links quando o menu está ativo */
+      }
+      .nav-links li {
+        padding: 15px 0;
+      }
+      .hamburger {
+        display: block; /* Mostra o ícone do hamburger */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="#inicio"><img src="logo2b.png" alt="Corium Revestimentos" class="logo-menu"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#materiais">Materiais</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </header>
+
+  <section class="hero" id="inicio">
+    <div class="slides">
+      <img src="1.jpg" alt="Banner 1">
+      <img src="2.jpg" alt="Banner 2">
+      <img src="3.jpg" alt="Banner 3">
+      <img src="4.jpg" alt="Banner 4">
+    </div>
+    <div class="hero-content">
+      <img src="logob.png" alt="Corium Revestimentos" class="logo">
+      <p>Sofisticação em couro, tecidos e palhas para projetos únicos.</p>
+      <a href="#contato" class="btn btn-light">Quero ser parceiro</a>
+    </div>
+  </section>
+
+  <section id="quem-somos">
+    <div class="container" style="text-align:center;">
+      <h2>Quem Somos</h2>
+      <p>A Corium nasceu em 2017 inspirada pela paixão pela decoração e pelo desejo de transformar sonhos em realidade. Nossa fundadora traz experiência em marcas renomadas e, junto a parceiros especialistas, criamos revestimentos em couro e tecido que unem qualidade, sofisticação e excelência.</p>
+    </div>
+  </section>
+
+  <section id="materiais" style="background:#f0f0f0;">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:40px;">Nossos Materiais</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Couros</h3>
+          <p>Couros únicos, com variações naturais de cor e acabamento, produzidos com baixo impacto ambiental.</p>
+          <img src="2.jpg" alt="Couros Corium">
+        </div>
+        <div class="card">
+          <h3>Tecidos</h3>
+          <p>Tecidos exclusivos em diversas cores e texturas, ideais para criar ambientes aconchegantes e sofisticados.</p>
+          <img src="3.jpg" alt="Tecidos Corium">
+        </div>
+        <div class="card">
+          <h3>Palhas</h3>
+          <p>Palhas naturais que trazem textura, leveza e design diferenciado aos projetos de decoração.</p>
+          <img src="4.jpg" alt="Palhas Corium">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#fff;">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:40px;">Coleção de Couros</h2>
+      <div class="couros-marquee">
+        <div class="marquee-content">
+          <img src="ex1.jpg" alt="Couro 1">
+          <img src="ex2.jpg" alt="Couro 2">
+          <img src="ex3.jpg" alt="Couro 3">
+          <img src="ex4.jpg" alt="Couro 4">
+          <img src="ex5.jpg" alt="Couro 5">
+          <img src="ex1.jpg" alt="Couro 1">
+          <img src="ex2.jpg" alt="Couro 2">
+          <img src="ex3.jpg" alt="Couro 3">
+          <img src="ex4.jpg" alt="Couro 4">
+          <img src="ex5.jpg" alt="Couro 5">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:40px;">Projetos Realizados</h2>
+      <div class="grid grid-3">
+        <img src="5.jpg" alt="Projeto 1" class="card" />
+        <img src="1.jpg" alt="Projeto 2" class="card" />
+        <img src="2.jpg" alt="Projeto 3" class="card" />
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#f0f0f0;">
+    <div class="container" style="text-align:center;">
+      <h2>Nossos Clientes</h2>
+      <div class="clientes">
+        <img src="cliente1.png" alt="Cliente 1">
+        <img src="cliente2.png" alt="Cliente 2">
+        <img src="cliente3.png" alt="Cliente 3">
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <h2 style="text-align:center;">Fale Conosco</h2>
+      <form action="https://formspree.io/f/SEU_ID" method="POST">
+        <input type="text" name="name" placeholder="Nome" required />
+        <input type="email" name="email" placeholder="E-mail" required />
+        <input type="text" name="empresa" placeholder="Escritório / Empresa" />
+        <textarea rows="4" name="mensagem" placeholder="Mensagem"></textarea>
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Corium Revestimentos. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Fecha o menu ao clicar em um link (opcional, bom para mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
