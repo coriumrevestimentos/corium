@@ -155,8 +155,12 @@
 
     /* Media Query para Responsividade do Menu */
     @media (max-width: 768px) {
-      .nav-links {
-        display: none; /* Esconde os links */
+    .header {
+        padding: 15px 20px; /* Reduza o padding do header para mobile */
+    }
+
+    .nav-links {
+        display: none;
         flex-direction: column;
         width: 100%;
         position: absolute;
@@ -165,17 +169,28 @@
         background: rgba(0, 0, 0, 0.9);
         text-align: center;
         padding: 20px 0;
-      }
-      .nav-links.active {
-        display: flex; /* Mostra os links quando o menu está ativo */
-      }
-      .nav-links li {
-        padding: 15px 0;
-      }
-      .hamburger {
-        display: block; /* Mostra o ícone do hamburger */
-      }
+        /* Adicione estas duas linhas para preencher a largura total */
+        box-sizing: border-box;
+        padding-left: 20px; /* Alinhe com o padding do header */
+        padding-right: 20px;
     }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 15px 0;
+    }
+    
+    .nav-links a {
+        display: block; /* Ocupa a largura total para ter uma área de clique maior */
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
   </style>
 </head>
 <body>
@@ -394,4 +409,5 @@
     });
   </script>
 </body>
+
 </html>
