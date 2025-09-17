@@ -1,8 +1,9 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <title>Corium Revestimentos</title>
   <style>
     /* Reset e Estilos Globais */
@@ -221,7 +222,7 @@ a<!DOCTYPE html>
     </div>
     <div class="hero-content">
       <img src="logob.png" alt="Corium Revestimentos" class="logo">
-      <p>Sofisticação em couro, tecidos e palhas para projetos únicos.</p>
+      <p></p>
       <a href="#contato" class="btn btn-light">Quero ser parceiro</a>
     </div>
   </section>
@@ -229,7 +230,7 @@ a<!DOCTYPE html>
   <section id="quem-somos">
     <div class="container" style="text-align:center;">
       <h2>Quem Somos</h2>
-      <p>A Corium nasceu em 2017 inspirada pela paixão pela decoração e pelo desejo de transformar sonhos em realidade. Nossa fundadora traz experiência em marcas renomadas e, junto a parceiros especialistas, criamos revestimentos em couro e tecido que unem qualidade, sofisticação e excelência.</p>
+      <p>Minha vivência no mundo da decoração começou quando eu tinha 16 anos e minha primeira experiência foi na Forma Móveis S/A. Desde então, vivencio e aprendo a cada dia nesse universo da decoração.Trabalhei com marcas renomadas como Hunter Douglas e Empório Beraldin, me apaixonando por cada detalhe de cada projeto, compreendendo que toda vez que idealizamos algo para dentro da casa de uma pessoa, passamos a fazer parte do sonho dela. Inspirada nisso, eu resolvi começar a realizar meu o meu próprio sonho e em 2017, fundei a CORIUM e junto com parceiros de vasta experiência na produção de revestimentos em couro e tecido e juntos, temos feito parte de projetos incríveis, oferecendo qualidade, sofisticação, conforto e excelência ao mercado de decoração</p>
     </div>
   </section>
 
@@ -240,17 +241,17 @@ a<!DOCTYPE html>
         <div class="card">
           <h3>Couros</h3>
           <p>Couros únicos, com variações naturais de cor e acabamento, produzidos com baixo impacto ambiental.</p>
-          <img src="2.jpg" alt="Couros Corium">
+          <img src="3.jpg" alt="Couros Corium">
         </div>
         <div class="card">
           <h3>Tecidos</h3>
           <p>Tecidos exclusivos em diversas cores e texturas, ideais para criar ambientes aconchegantes e sofisticados.</p>
-          <img src="3.jpg" alt="Tecidos Corium">
+          <img src="6.jpg" alt="Tecidos Corium">
         </div>
         <div class="card">
           <h3>Palhas</h3>
           <p>Palhas naturais que trazem textura, leveza e design diferenciado aos projetos de decoração.</p>
-          <img src="4.jpg" alt="Palhas Corium">
+          <img src="2.jpg" alt="Palhas Corium">
         </div>
       </div>
     </div>
@@ -352,8 +353,9 @@ a<!DOCTYPE html>
         </div>
       </div>
     </div>
-</section>
-  
+  </section>
+
+
   <section style="background:#f0f0f0;">
     <div class="container" style="text-align:center;">
       <h2>Nossos Clientes</h2>
@@ -365,18 +367,71 @@ a<!DOCTYPE html>
     </div>
   </section>
 
-  <section id="contato">
-    <div class="container">
-      <h2 style="text-align:center;">Fale Conosco</h2>
-      <form action="https://formspree.io/f/mandlwad" method="POST">
-        <input type="text" name="name" placeholder="Nome" required />
-        <input type="email" name="email" placeholder="E-mail" required />
-        <input type="text" name="empresa" placeholder="Escritório / Empresa" />
-        <textarea rows="4" name="mensagem" placeholder="Mensagem"></textarea>
-        <button type="submit">Enviar Mensagem</button>
-      </form>
+<!-- Contato -->
+<section id="contato" style="background:#f9f9f9; padding:80px 20px;">
+  <div class="container" style="text-align:center;">
+    <h2 style="margin-bottom:40px;">Fale Conosco</h2>
+    <div class="contatos-grid">
+      <div class="contato-card">
+        <div class="icon"><i class="fa-brands fa-instagram"></i></div>
+        <h3>Instagram</h3>
+        <a href="https://www.instagram.com/coriumrevestimentos" target="_blank">@coriumrevestimentos</a>
+      </div>
+      <div class="contato-card">
+        <div class="icon"><i class="fa-regular fa-envelope"></i></div>
+        <h3>E-mail</h3>
+        <a href="mailto:contato@coriumrevestimentos.com.br">contato@coriumrevestimentos.com.br</a>
+      </div>
+      <div class="contato-card">
+        <div class="icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3>WhatsApp</h3>
+        <a href="https://wa.me/5511987654321" target="_blank">(11) 99999-9999</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+  .contatos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  .contato-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 50px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+
+  .contato-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #5c3d2e;
+  }
+
+  .contato-card h3 {
+    margin-bottom: 10px;
+    color: #111;
+  }
+
+  .contato-card a {
+    color: #5c3d2e;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .contato-card a:hover {
+    text-decoration: underline;
+  }
+</style>
+
 
   <footer>
     <p>© 2025 Corium Revestimentos. Todos os direitos reservados.</p>
@@ -398,7 +453,4 @@ a<!DOCTYPE html>
     });
   </script>
 </body>
-
 </html>
-
-
